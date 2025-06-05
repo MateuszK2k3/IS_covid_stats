@@ -1,5 +1,3 @@
-# db_mysql.py
-
 import mysql.connector
 import json
 import os
@@ -9,11 +7,6 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-
-# --------------------------------------------------------------------------------
-# 1. Funkcja tworząca bazę danych (jeśli nie istnieje) – korzystamy nadal z mysql.connector,
-#    ponieważ SQLAlchemy nie zapewnia wprost CREATE DATABASE.
-# --------------------------------------------------------------------------------
 
 def create_database_if_not_exists():
     conn = mysql.connector.connect(
@@ -26,13 +19,6 @@ def create_database_if_not_exists():
     cursor.close()
     conn.close()
 
-
-# --------------------------------------------------------------------------------
-# 2. Konfiguracja SQLAlchemy: silnik, sesja i klasa bazowa
-# --------------------------------------------------------------------------------
-
-# Uwaga: w łańcuchu połączenia używamy drivera mysqlconnector,
-#       bo wcześniej instalowaliśmy `mysql-connector-python`.
 engine = create_engine(
     "mysql+mysqlconnector://root:1234@localhost/covid_stats",
     echo=False,                           # można włączyć True dla logów SQL
@@ -41,11 +27,6 @@ engine = create_engine(
 )
 Session = sessionmaker(bind=engine, future=True)
 Base = declarative_base()
-
-
-# --------------------------------------------------------------------------------
-# 3. Modele ORM (klasy odpowiadające tabelom)
-# --------------------------------------------------------------------------------
 
 class Year(Base):
     __tablename__ = "years"
@@ -108,11 +89,6 @@ class Death(Base):
         return (f"<Death(id={self.id}, month_id={self.month_id}, total={self.total_deaths}, "
                 f"covid={self.covid_deaths}, other={self.other_deaths})>")
 
-
-# --------------------------------------------------------------------------------
-# 4. Funkcja tworząca tabele zgodnie z modelami ORM
-# --------------------------------------------------------------------------------
-
 def create_tables():
     """
     Tworzy wszystkie tabele w bazie (jeśli ich jeszcze nie ma),
@@ -120,11 +96,6 @@ def create_tables():
     """
     Base.metadata.create_all(engine)
     print("✅ Tabele utworzone (lub już istniały).")
-
-
-# --------------------------------------------------------------------------------
-# 5. Import JSON → MySQL przez SQLAlchemy ORM
-# --------------------------------------------------------------------------------
 
 def import_json_to_mysql(json_path='data/processed/covid_stats.json'):
     if not os.path.exists(json_path):
@@ -228,43 +199,7 @@ def import_json_to_mysql(json_path='data/processed/covid_stats.json'):
     finally:
         session.close()
 
-
-# --------------------------------------------------------------------------------
-# 6. Eksport MySQL → JSON przez SQLAlchemy ORM
-# --------------------------------------------------------------------------------
-
 def export_mysql_to_json(json_path='data/processed/covid_exported.json'):
-    """
-    Eksportuje wszystkie dane z tabel:
-      years, unemployment, deaths
-    do struktury:
-      {
-        "years": [
-          {
-            "value": 2020,
-            "months": [
-              {
-                "name": "January",
-                "unemployment": {
-                  "national": 5.2,
-                  "male": 5.0,
-                  "female": 5.4
-                },
-                "deaths": {
-                  "total": 30000,
-                  "COVID-19": 2000,
-                  "other": 28000
-                }
-              },
-              ...
-            ]
-          },
-          ...
-        ]
-      }
-    i zapisuje do pliku JSON pod podaną ścieżką.
-    """
-
     session = Session()
     output = {"years": []}
 
