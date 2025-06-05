@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<statistics country="Polska" source="GUS+MZ" lastUpdate="2025-06-05">
+
+    <year value="2015">
+        <month name="Styczeń">
+            <unemployment national="9.0">
+                <gender sex="male">8.5</gender>
+                <gender sex="female">9.5</gender>
+            </unemployment>
+            <deaths total="370000">
+                <cause type="COVID-19">0</cause>
+                <cause type="other">370000</cause>
+            </deaths>
+        </month>
+        <month name="Grudzień">
+            <unemployment national="9.8">
+                <gender sex="male">9.3</gender>
+                <gender sex="female">10.3</gender>
+            </unemployment>
+            <deaths total="382000">
+                <cause type="COVID-19">0</cause>
+                <cause type="other">382000</cause>
+            </deaths>
+        </month>
+    </year>
+
+    <year value="2017">
+        <month name="Styczeń">
+            <unemployment national="8.2">
+                <gender sex="male">7.6</gender>
+                <gender sex="female">8.8</gender>
+            </unemployment>
+            <deaths total="395000">
+                <cause type="COVID-19">0</cause>
+                <cause type="other">395000</cause>
+            </deaths>
+        </month>
+        <month name="Czerwiec">
+            <unemployment national="7.1">
+                <gender sex="male">6.7</gender>
+                <gender sex="female">7.5</gender>
+            </unemployment>
+            <deaths total="390000">
+                <cause type="COVID-19">0</cause>
+                <cause type="other">390000</cause>
+            </deaths>
+        </month>
+    </year>
+
+    <year value="2018">
+        <month name="Marzec">
+            <unemployment national="6.3">
+                <gender sex="male">6.0</gender>
+                <gender sex="female">6.6</gender>
+            </unemployment>
+            <deaths total="400500">
+                <cause type="COVID-19">0</cause>
+                <cause type="other">400500</cause>
+            </deaths>
+        </month>
+        <month name="Grudzień">
+            <unemployment national="5.9">
+                <gender sex="male">5.5</gender>
+                <gender sex="female">6.3</gender>
+            </unemployment>
+            <deaths total="414200">
+                <cause type="COVID-19">0</cause>
+                <cause type="other">414200</cause>
+            </deaths>
+        </month>
+    </year>
+
+    <year value="2020">
+        <month name="Marzec">
+            <unemployment national="6.2">
+                <gender sex="male">6.4</gender>
+                <gender sex="female">6.0</gender>
+            </unemployment>
+            <deaths total="430000">
+                <cause type="COVID-19">12000</cause>
+                <cause type="other">418000</cause>
+            </deaths>
+        </month>
+        <month name="Listopad">
+            <unemployment national="6.5">
+                <gender sex="male">6.6</gender>
+                <gender sex="female">6.4</gender>
+            </unemployment>
+            <deaths total="477400">
+                <cause type="COVID-19">68400</cause>
+                <cause type="other">409000</cause>
+            </deaths>
+        </month>
+    </year>
+
+    <year value="2022">
+        <month name="Styczeń">
+            <unemployment national="5.6">
+                <gender sex="male">5.4</gender>
+                <gender sex="female">5.8</gender>
+            </unemployment>
+            <deaths total="460000">
+                <cause type="COVID-19">20000</cause>
+                <cause type="other">440000</cause>
+            </deaths>
+        </month>
+        <month name="Grudzień">
+            <unemployment national="5.2">
+                <gender sex="male">5.0</gender>
+                <gender sex="female">5.4</gender>
+            </unemployment>
+            <deaths total="447900">
+                <cause type="COVID-19">15000</cause>
+                <cause type="other">432900</cause>
+            </deaths>
+        </month>
+    </year>
+
+</statistics>
